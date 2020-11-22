@@ -13,7 +13,7 @@ int main(void) {
     for (n = 0; ; n++, k1 = -k1)
     {
         dbln = n;
-        term = k1 * (dbln + 1) / (dbln * dbln + dbln * 2 + 1);
+        term = k1 * (dbln + 1) / (dbln+1)*(dbln+1);
         if (fabs(term) >= eps)
             sum += term;
         else break;

@@ -1,0 +1,2 @@
+D:\local_repository\My_repository\Lab7\Debug\Lab7.exe
+D:\local_repository\My_repository\Lab7\Debug\Lab7.pdb
