@@ -1,0 +1,4 @@
+﻿  c.cpp
+D:\local_repository\My_repository\Lab8\c\c.cpp(7,24): warning C4101: k: неиспользованная локальная переменная
+D:\local_repository\My_repository\Lab8\c\c.cpp(7,22): warning C4101: r: неиспользованная локальная переменная
+  c.vcxproj -> D:\local_repository\My_repository\lab8\Debug\c.exe
