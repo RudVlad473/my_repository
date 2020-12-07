@@ -32,7 +32,6 @@ int main()
 		for (; x > 0;)
 		{
 			y = x % 10;
-			sum += y;
 			x /= 10;
 			cout << y;
 
