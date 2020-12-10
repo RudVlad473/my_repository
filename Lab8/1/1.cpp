@@ -1,102 +1,80 @@
 ﻿#include <iostream>
 #include <time.h>
 #include <math.h>
+#include <iomanip>
 using namespace std;
 
 
 
-int main()
-{
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+int Ar[100];   
 
-			setlocale(LC_ALL, "ru");
-			int const SIZE = 200;
-			
-			int arr[SIZE];
-			/*основной массив*/
-			for (int i = 0; i < SIZE; i++)
-			{
-				arr[i] = rand() % 21 - 11;
-			}
-			for (int i = 0; i < SIZE; i++)
-			{
-				cout << arr[i] << " ";
-				if (i == 0)
-				{
-					continue;
-				}
-				if (i % 20 == 0)
-				{
-					cout << endl;
-				}
-			}
-			/*доп массив*/
-			int const SIZE2 = 200;
-			int arr2[SIZE2];
-			int j = 0;
-			
-			cout << endl<< endl << endl;
-			for (int j = 0; j < SIZE2; j++)
-			{
-				cout << arr2[j] << " ";
-				if ((j % 20 == 0) && (j != 0))
-				{
-					cout << endl;
-				}
-			}
-			cout << endl<< endl<< endl<< endl;
-			/**/
-			int summa = 0;
-			int aver = 0;
-			int k = 0;
-			for (int i = 0; i < SIZE; i++)
-			{
-				if ((arr[i]>=0)&&(arr[i+1]<0))
-				{
-					
-					k++;
-					summa += arr[i];					
-					aver = summa / k;					
-					if (k >= 2)
-					{
-						for (int i2 = i; arr[i2] > 0; arr[i2] = arr[i2 - 1])
-						{
-							if (arr[i] < aver)
-							{
-								arr[i] = aver;
-								arr2[i] = arr[i];
-							}
-						}
-						summa = 0;
-						aver = 0;
-						k = 0;
-					}
+int main(void) {
+    setlocale(LC_ALL, "ru");
+    int i, j;    
+    int av;      
+    int nn; 
+    int ib;
+    for (i = 0; i < 100; Ar[i++] = rand() % 21 - 11);
+    
+    
+    
+    for (i = 0; i < 100; printf("%3d  ", Ar[i++]))
+    {
+        if ((i % 20 == 0) && (i != 0))
+        {
+            cout << endl;
+        }
+    };
+    putchar('\n');
+    putchar('\n');
 
-				}
-				if (arr[i] >= 0)
-				{
-					k++;
-					summa += arr[i];
-					
-					
-				}
-				if (arr[i] < 0)
-				{
-					arr2[i] = arr[i];
-				}
-				
-			}
-			/*вывод нового массива*/
-			j = 0;
-			for (; j < SIZE2; j++)
-			{
-				cout << arr2[j] << " ";
-				if ((j % 20 == 0) && (j != 0))
-				{
-					cout << endl;
-				}
-			}
+    for (nn = i = 0; i < 100; i++) { /* перебор массива */
+        if (Ar[i] > 0)
+            /* обработка отрицательного элемента */
+            if (!nn) {
+                /* начало последовательности */
+                /* запомнить индекс начала,
+                   начальное значение накопителя суммы
+                   и счетчика элементов */
+                ib = i; av = Ar[i]; nn = 1;
+            }
+            else {
+                /* накопление суммы,
+                   подсчет количества */
+                av += Ar[i]; nn++;
+            }
+        /* конец обработки отрицательного элемента */
+        else /* обработка положительного элемента */
+            if (nn) {
+                /* если есть необработанная
+                   отрицательная последовательность */
+                av /= nn;   /* усреднение */
+                /* перебор всей последовательности
+                   с ограничением */
+                for (j = ib; j < i; j++)
+                    if (Ar[j] > av) Ar[j] = av;
+                nn = 0; /* последовательность обработана */
+            } /* конец если есть необработанная... */
+    }  /* конец перебор массива */
+    if (nn) /* если не обработана последняя
+               отрицательная последовательность */
+        for (av /= nn, j = ib; j < i; j++)
+            if (Ar[j] > av) Ar[j] = av;
+    /* вывод результатов */
+    printf("Массив-результат:\n");
+    for (i = 0; i < 100; cout << setw(4) << Ar[i++])
+    {
+        if ((i % 20 == 0) && (i != 0))
+        {
+            cout << endl;
+        }
+    };
+    putchar('\n');
 
-
+    return 0;
 }
 
 
