@@ -16,11 +16,11 @@ int* merge_sort(int* up, int* down, unsigned int left, unsigned int right)
 
 	unsigned int middle = (left + right) / 2;
 
-	// разделяй и сортируй
+	
 	int* l_buff = merge_sort(up, down, left, middle);
 	int* r_buff = merge_sort(up, down, middle + 1, right);
 
-	// слияние двух отсортированных половин
+	
 	int* target = l_buff == up ? down : up;
 
 	unsigned int l_cur = left, r_cur = middle + 1;
