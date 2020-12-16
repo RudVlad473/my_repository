@@ -1,0 +1,5 @@
+﻿  Odd-even sort.cpp
+D:\local_repository\My_repository\RGZ\Odd-even sort\Odd-even sort.cpp(11,23): warning C4018: <: несоответствие типов со знаком и без знака
+D:\local_repository\My_repository\RGZ\Odd-even sort\Odd-even sort.cpp(13,42): warning C4018: <: несоответствие типов со знаком и без знака
+D:\local_repository\My_repository\RGZ\Odd-even sort\Odd-even sort.cpp(30,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Odd-even sort.vcxproj -> D:\local_repository\My_repository\RGZ\Debug\Odd-even sort.exe

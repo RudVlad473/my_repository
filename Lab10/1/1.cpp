@@ -23,6 +23,8 @@ int main()
 	}
 	cout << endl << endl << endl << endl;
 	foo(arr);
+	cout << endl;
+	
 	
 	
 	
@@ -68,11 +70,12 @@ void foo (int arr[])
 	{
 		for (j = 0; j < M; j++)
 		{
-			arr4[i * M + j] = arr3[i][j];
-			cout  << arr4[i*M+j]<< " ";
+			arr[i * M + j] = arr3[i][j];
+			cout  << arr[i*M+j]<< " ";
 		}
 		
 	}
+	
 
 }
 
