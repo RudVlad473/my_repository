@@ -1,27 +1,37 @@
 ﻿#include <chrono>
 #include <iostream>
 #include <ctime>
+#include <iomanip>
 using namespace std;
 
 
 
 void Oddevensort(int arr1[], const int SIZE1)
 {
-	auto start = chrono::high_resolution_clock::now();
-	for (size_t i = 0; i < SIZE1; i++)
+	
+	int z = 0;
+	double sum = 0;
+	while (z <= 100)
 	{
-		for (size_t j = (i % 2) ? 0 : 1; j + 1 < SIZE1; j += 2)
+		auto start = chrono::high_resolution_clock::now();
+		for (size_t i = 0; i < SIZE1; i++)
 		{
-			if (arr1[j] > arr1[j + 1])
+			for (size_t j = (i % 2) ? 0 : 1; j + 1 < SIZE1; j += 2)
 			{
-				swap(arr1[j], arr1[j + 1]);
+				if (arr1[j] > arr1[j + 1])
+				{
+					swap(arr1[j], arr1[j + 1]);
 
+				}
 			}
 		}
+		auto end = chrono::high_resolution_clock::now();
+		chrono::duration<double> duration = end - start;
+		
+		z++;
+		sum += duration.count();
 	}
-	auto end = chrono::high_resolution_clock::now();
-	chrono::duration<double> duration = end - start;
-	cout << "Время исполнения сортировки: " << duration.count() << " s" << endl;
+	cout << "Время исполнения сортировки: " << setw(6)<<sum / 100 << " s" << endl;
 }
 
 
@@ -50,11 +60,6 @@ int main()
 	}
 	cout << endl;
 	Oddevensort(arr1, SIZE1);
-
-
-
-
-
 	cout << "       Упорядоченый массив:  " << endl;
 	for (int i = 0; i < SIZE1; i++)
 	{
@@ -80,6 +85,9 @@ int main()
 		cout << arr2[i] << " ";
 	}
 	cout << endl << endl;
+
+
+
 	cout << "--------------------------------------------------------------" << endl;
 	cout << "          Сортировка упорядоченного в обратном порядке массива        " << endl;
 	int arr3[SIZE1];
