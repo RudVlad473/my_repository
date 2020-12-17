@@ -2,7 +2,7 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
-int const SIZE1 = 20;
+int const SIZE1 = 40;
 int arrbuff[SIZE1];
 int const L = 100;
 

@@ -47,7 +47,7 @@ int main()
 	cout << "          Сортировка неупорядоченного массива      " << endl;
 	
 	
-	int const SIZE1 = 15;
+	int const SIZE1 = 45;
 	int arr1[SIZE1];
 	for (int i = 0; i < SIZE1; i++)
 	{
