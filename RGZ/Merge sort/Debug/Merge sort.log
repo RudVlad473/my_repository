@@ -1,2 +1,3 @@
 ﻿  Merge sort.cpp
+D:\local_repository\My_repository\RGZ\Merge sort\Merge sort.cpp(60,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   Merge sort.vcxproj -> D:\local_repository\My_repository\RGZ\Debug\Merge sort.exe

@@ -1,7 +1,7 @@
 ﻿#include <chrono>
 #include <iostream>
 using namespace std;
-int const SIZE1 = 15;
+int const SIZE1 = 5;
 int arrbuff[SIZE1];
 
 
@@ -57,7 +57,7 @@ int* merge_sort(int* up, int* down, unsigned int left, unsigned int right)
 
 int main()
 {
-
+	srand(time(NULL));
 	setlocale(LC_ALL, "ru");
 	cout << "---------------------------------------------------" << endl;
 	cout << "|            Расчетно-графическое задание         |" << endl;
@@ -136,7 +136,7 @@ int main()
 	}
 	cout << endl;
 	start = chrono::high_resolution_clock::now();
-	merge_sort(arr3, arrbuff, 0, SIZE1 - 1);
+	merge_sort(arr3, arrbuff, 0, SIZE1-1 );
 	end = chrono::high_resolution_clock::now();
 	duration = end - start;
 	cout << "Время исполнения сортировки: " << duration.count() << " s" << endl;
