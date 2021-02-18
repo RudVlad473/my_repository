@@ -14,6 +14,11 @@ int main()
     {
         arr[j] = rand() % 101;
     }
+    for (int j = 0; j < SIZE; j++)
+    {
+        cout << arr[j] << " ";
+    }
+    cout << endl;
     if (d == 1)
     {
      
@@ -43,11 +48,12 @@ int main()
         cout << "Введите кол-во элементов , которое хотите удалить и позицию, с которой следует начать удаление: ";
         cin >> n1;
         cin >> posit;
-        while (m< n1)
+        for (int i = 0; i > posit && i < posit + n1; i++)
         {
-            arr[posit+m] = arr[posit + 1];
-            m++;
+            delete &arr[i];
         }
+        
+        
         for (int k = 0; k < SIZE; k++)
         {
             cout << arr[k] << " ";
