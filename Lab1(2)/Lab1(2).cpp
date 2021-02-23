@@ -3,181 +3,110 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <iomanip>
 using namespace std;
 
 
-
-struct OperSistem {
-    
+struct OperSistem 
+{
+    string Name;
     string SUBD;
     int outmem;
-    short minRam;
+    int minRam;
     int cost;
 
 };
-OperSistem OS2;
-OperSistem WindowsNT;
-OperSistem SCOUnix;
 
-void Vvod()
+
+
+void Vvod(OperSistem Array[],string arr[],int SIZE)
 {
     /*Ввод с экрана*/
 
-                            /*----------------------1------------------------*/
-    cout << "Введите следующие значения с клавиатуры(для OS/2): " << endl;
-    cout << "СУБД: ";
-    cin >> OS2.SUBD;
-    cout << endl;
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << "Введите следующие значения с клавиатуры: " << endl;
 
-    cout << "Мин.объем внешней памяти (MB): ";
-    cin >> OS2.outmem;
-    cout << endl;
+        cout << "\tИмя ОС: ";
+        cin >> Array[i].Name;
+        cout << endl;
 
-    cout << "Мин.объем оперативной памяти (MB): ";
-    cin >> OS2.minRam;
-    cout << endl;
+        cout << "\tСУБД: ";
+        cin >> Array[i].SUBD;
+        cout << endl;
 
-    cout << "Приблизительная цена ($): ";
-    cin >> OS2.cost;
-    cout << endl << endl << endl;
+        cout << "\tМин.объем внешней памяти (MB): ";
+        cin >> Array[i].outmem;
+        cout << endl;
 
-    /*--------------------------2------------------------*/
-    cout << "Введите следующие значения с клавиатуры(для Windows/NT): " << endl;
-    cout << "СУБД: ";
-    cin >> WindowsNT.SUBD;
-    cout << endl;
+        cout << "\tМин.объем оперативной памяти (MB): ";
+        cin >> Array[i].minRam;
+        cout << endl;
 
-    cout << "Мин.объем внешней памяти (MB): ";
-    cin >> WindowsNT.outmem;
-    cout << endl;
+        cout << "\tПриблизительная цена ($): ";
+        cin >> Array[i].cost;
+        cout << endl << endl << endl;
+    }
 
-    cout << "Мин.объем оперативной памяти (MB): ";
-    cin >> WindowsNT.minRam;
-    cout << endl;
 
-    cout << "Приблизительная цена ($): ";
-    cin >> WindowsNT.cost;
-    cout << endl << endl << endl;
-    /*--------------------------3------------------------*/
-    cout << "Введите следующие значения с клавиатуры(SCO/Unix): " << endl;
-    cout << "СУБД: ";
-    cin >> SCOUnix.SUBD;
-    cout << endl;
-
-    cout << "Мин.объем внешней памяти (MB): ";
-    cin >> SCOUnix.outmem;
-    cout << endl;
-
-    cout << "Мин.объем оперативной памяти (MB): ";
-    cin >> SCOUnix.minRam;
-    cout << endl;
-
-    cout << "Приблизительная цена ($): ";
-    cin >> SCOUnix.cost;
-    cout << endl << endl << endl;
-    /*---------------------------------------------------*/
 }
 
-void Randomly() {
-    /*Случайным образом*/
+void Randomly(OperSistem arr[],int Size)
+{
+    string Array[] = { "OS/2","Windows/NT","SCO/Unix" };
+    string Array2[] = { "DB2", "SQLServer", "Oracle" };
+    for (int i = 0; i < Size; i++)
+    {
+        arr[i].Name = Array[i];
+        cout << "Имя ОС: " << arr[i].Name << endl;
 
-                                /*----------------------1------------------------*/
-    cout << "Для OS/2: " << endl;
-    cout << "СУБД: ";
-    OS2.SUBD = "DB2";
-    cout << OS2.SUBD;
-    cout << endl;
+        arr[i].SUBD = Array2[i];
+        cout << "СУБД: " << arr[i].SUBD << endl;
 
-    cout << "Мин.объем внешней памяти (MB): ";
-    OS2.outmem = 130;
-    cout << OS2.outmem;
-    cout << endl;
+        arr[i].outmem = rand() % 250;
+        cout << "Мин.объем внешней памяти (MB): " << arr[i].outmem << endl;
 
-    cout << "Мин.объем оперативной памяти (MB): ";
-    OS2.minRam = 22;
-    cout << OS2.minRam;
-    cout << endl;
+        arr[i].minRam = rand() % 50;
+        cout << "Мин.объем оперативной памяти (MB): " << arr[i].minRam << endl;
 
-    cout << "Приблизительная цена ($): ";
-    OS2.cost = 3343;
-    cout << OS2.cost;
-    cout << endl << endl << endl;
+        arr[i].cost = rand() % 4000;
+        cout << "Приблизительная цена ($): " << arr[i].cost << endl;
+    }                           
+} 
 
-    /*--------------------------2------------------------*/
-    cout << "Для Windows/NT: " << endl;
-    cout << "СУБД: ";
-    WindowsNT.SUBD = "SQLServer";
-    cout << WindowsNT.SUBD;   
-    cout << endl;
-
-    cout << "Мин.объем внешней памяти (MB): ";
-    WindowsNT.outmem = 230;
-    cout << WindowsNT.outmem;
-    cout << endl;
-
-    cout << "Мин.объем оперативной памяти (MB): ";
-    WindowsNT.minRam = 24;
-    cout << WindowsNT.minRam;
-    cout << endl;
-
-    cout << "Приблизительная цена ($): ";
-    WindowsNT.cost = 2685;
-    cout << WindowsNT.cost;
-    cout << endl << endl << endl;
-    /*--------------------------3------------------------*/
-    cout << "Для SCO/Unix: " << endl;
-    cout << "СУБД: ";
-    SCOUnix.SUBD = "Oracle";
-    cout << SCOUnix.SUBD;
-    cout << endl;
-
-    cout << "Мин.объем внешней памяти (MB): ";
-    SCOUnix.outmem = 110;
-    cout << SCOUnix.outmem;
-    cout << endl;
-
-    cout << "Мин.объем оперативной памяти (MB): ";
-    SCOUnix.minRam = 48;
-    cout << SCOUnix.outmem;
-    cout << endl;
-
-    cout << "Приблизительная цена ($): ";
-    SCOUnix.cost = 3745;
-    cout << SCOUnix.cost;
-    cout << endl << endl << endl;
-    /*---------------------------------------------------*/
-}
-
-void Sorting()
+void Sorting(OperSistem Array[],int Size)
 {
     /*Сортировка*/
-    string Arr[] = { "OS/2", "Windows/NT", "SCO/Unix" };
-    std::vector<std::string> stringarray;
-    std::sort(Arr, Arr + 3);
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < Size - 1; i++)
     {
-        cout << Arr[i] << endl;
+        for (int j = i; j < Size; j++)
+        {
+            if (Array[i].Name > Array[j].Name)
+            {
+
+                swap(Array[i].Name, Array[j].Name);
+            }
+        }
+
     }
 
 }
 
-void Print()
+
+void Print(OperSistem Array[], int Size)
 {
     /*Печать*/
 
-    char OS1[5] = "OS/2", OS2[11] = "Windows/NT", OS3[9] = "SCO/Unix";
-    char subd1[4] = "DB2", subd2[10] = "SQLServer", subd3[7] = "Oracle";
-    int out1 = 130, out2 = 230, out3 = 110;
-    int oper1 = 22, oper2 = 24, oper3 = 48;
-    int price1 = 3343, price2 = 2685, price3 = 3745;
+
     printf("-----------------------------------------------------------------------------------------------------------------------------------------\n");
     printf("|                                          Конфигурация програмных средств информационных систем                                        |\n");
     printf("-----------------------------------------------------------------------------------------------------------------------------------------\n");
     printf("|   Операционная система  |    СУБД    |Мин.объем внешней памяти (MB)|  Мин.объем оперативной памяти (MB)  |   Приблизительная цена ($) |\n");
     printf("-----------------------------------------------------------------------------------------------------------------------------------------\n");
-    printf("| %22s  | %9s  | %26d  | %35d | %26d |\n", OS1, subd1, out1, oper1, price1);
-    printf("| %22s  | %8s  | %26d  | %35d | %26d |\n", OS2, subd2, out2, oper2, price2);
-    printf("| %22s  | %9s  | %26d  | %35d | %26d |\n", OS3, subd3, out3, oper3, price3);
+    for (int i = 0; i < Size; i++)
+    {
+        cout << "|" << setw(25) << Array[i].Name << "|" << setw(12) << Array[i].SUBD << "|" << setw(29) << Array[i].outmem << "|" << setw(37) << Array[i].minRam << "|" << setw(28) << Array[i].cost << "|" << endl;
+    }
     printf("-----------------------------------------------------------------------------------------------------------------------------------------\n");
     printf("|Примечание: принималась цена лицензии на 8 пользователей                                                                               |\n");
     printf("-----------------------------------------------------------------------------------------------------------------------------------------");
@@ -186,56 +115,50 @@ void Print()
 
 int main()
 {
+    srand(time(NULL));
+    const int SIZE = 3;
     setlocale(LC_ALL, "ru");
-    int a;
-    cout << "Введите цифру для вызова функции: " << endl;
-    cout << " 1 - Ввод данных с клавиатуры" << endl;
-    cout << " 2 - Ввод случайным образом" << endl;
-    cout << " 3 -  Сортировка " << endl;
-    cout << " 4 - Печать" << endl;
-    cin >> a;
-    if (a == 1)
-    {
-        Vvod();
-    }
-    if (a == 2)
-    {
-        Randomly();
-    }
-    if (a == 3)
-    {
-        Sorting();
-    }
-    if (a == 4)
-    {
-        Print();
-    }
-
-
-  
-
+    OperSistem Array[SIZE];
     
+    string arr[] = { "OS/2","Windows/NT","SCO/Unix" };
+    for (int i = 0; i < SIZE; i++)
+    {
+                
+    }
 
-   
+    int a;
+    bool While = true;
+    while (While)
+    {
+        cout << "\nВведите цифру для вызова функции: " << endl;
+        cout << " 1 - Ввод данных с клавиатуры" << endl;
+        cout << " 2 - Ввод случайным образом" << endl;
+        cout << " 3 -  Сортировка " << endl;
+        cout << " 4 -  Печать " << endl;
+        cin >> a;
+        switch (a)
+        {
+        case 1:
+            Vvod(Array, arr, SIZE);
+            break;
+            
+        case 2:
+            Randomly(Array, SIZE);
+            break;
+            
+        case 3:
+            Sorting(Array, SIZE);
+            break;
+            
+        case 4:
+            Print(Array, SIZE);
+            break;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*-----------------------------------------------*/
-
-
+        default:
+            cout << "Error\n";
+            While = false;
+            break;
+        }
+    }
     return 0;
 }
-
