@@ -1,8 +1,8 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-#define SIZE  20
-int pe = 0;
-int modd = 0;
-int me = 0;
+#define SIZE  30
 
+void Filling(int* mas, int size);
+void Task(int* mas, int* mas2, int size);

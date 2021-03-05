@@ -3,7 +3,7 @@ int main()
 {
 	setlocale(LC_ALL, "ru");
 	srand(time(NULL));
-	
+
 	int SIZE;
 	cout << "Введите размер массива: ";
 	cin >> SIZE;
@@ -16,4 +16,3 @@ int main()
 
 	delete[]Array;
 }
-
