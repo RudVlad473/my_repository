@@ -11,13 +11,9 @@ int main()
 #ifdef DEBUG
     /*Работа с одномерным как с двумерным*/
     int* arr = new int[size * size]{};
-    int** arr2 = new int* [size] {};
-    for (int i = 0; i < size; i++)
-    {
-        arr2[i] = new int[size] {};
-    }
+   
     
-    mas21(arr,arr2, size);
+    mas12(arr, size);
     
 
 
@@ -31,15 +27,10 @@ int main()
     }
 
 
-    for (int i = 0; i < size; i++)
-    {
-        delete[]arr;
-    }
-    for (int i = 0; i < size; i++)
-    {
-        delete[]arr2[i];
-    }
-    delete[]arr2;
+   
+    delete[]arr;
+    
+    
     
     /*--------------------------------*/
 #endif
@@ -71,6 +62,7 @@ int main()
         delete[]array[i];
     }
     delete[]array;
+    array = nullptr;
 
 #endif
 }

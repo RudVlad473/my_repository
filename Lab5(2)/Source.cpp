@@ -2,23 +2,9 @@
 
 
 #ifdef DEBUG
-void mas21(int* arr, int** arr2, int size)
+void mas12(int* arr, int size)
 {
-    /*Временный двумерный массив для работы внутри функ*/
-
-
-    /*--------*/
-
-    for (int i = 0; i < size; i++)
-    {
-
-        for (int j = 0; j < size; j++)
-        {
-            arr2[i][j] = arr[i * size + j];
-
-        }
-
-    }
+    
 
 
     /* Задание*/
@@ -32,26 +18,16 @@ void mas21(int* arr, int** arr2, int size)
         {
             if (((i < j) && ((i + j) > (size - 1))) || ((i > j) && ((i + j) < (size - 1))))
             {
-                arr2[i][j] = k;
+                *(arr + i * size + j) = k;
                 k++;
             }
             else
             {
-                arr2[i][j] = 0;
+                *(arr + i * size + j) = 0;
             }
         }
     }
-    for (int i = 0; i < size; i++)
-    {
-
-        for (int j = 0; j < size; j++)
-        {
-            arr[i * size + j] = arr2[i][j];
-
-        }
-
-    }
-
+    
     /*---------------------*/
 
 }
@@ -71,12 +47,12 @@ void mas22(int** array, int size)
         {
             if (((i < j) && ((i + j) > (size - 1))) || ((i > j) && ((i + j) < (size - 1))))
             {
-                array[i][j] = k;
+                *(*(array+i)+j) = k;
                 k++;
             }
             else
             {
-                array[i][j] = 0;
+                *(*(array + i) + j) = 0;
             }
         }
     }
