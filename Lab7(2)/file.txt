@@ -1,0 +1,17 @@
+
+ ¢«ë¤ ®ë¢«¤ ®¤ë¢«®OS/2
+DB2
+146
+0
+2981
+Windows/NT
+SQLServer
+174
+31
+3165
+SCO/Unix
+Oracle
+34
+13
+2442
+2442
