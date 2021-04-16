@@ -398,13 +398,22 @@ void ponomery(int temp)
     FILE* f;
 
     fopen_s(&f, "file.txt", "r");
+    char t[50]{};
     if (f == NULL) 
     {		
         puts("Ошибка открытия файла.");
         exit(0);
     }
-    
-
+    fseek(f, temp, SEEK_SET);
+    while (true)
+    {
+        if (fgetc(f) != '\n')
+        {
+            break;
+        }
+        char *tem = fgets(t, 50, f);
+        cout <<tem ;
+    }
 
     fclose(f);
 }
