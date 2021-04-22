@@ -1,3 +1,2 @@
-﻿  Lab7(2).cpp
-D:\local_repository\My_repository\Lab7(2)\Lab7(2).cpp(523,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+﻿  Source.cpp
   Lab7(2).vcxproj -> D:\local_repository\My_repository\Lab7(2)\Debug\Lab7(2).exe

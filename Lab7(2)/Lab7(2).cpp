@@ -9,7 +9,7 @@ int main()
     setlocale(LC_ALL, "ru");
     /*-----------------*/
 
-
+    OperSistem OS2{}, WindowsNT{}, SCOUnix{};
    
 
 
@@ -40,7 +40,7 @@ int main()
         }
         else if (a == 3)
         {
-            vnachalo(OS2, WindowsNT, SCOUnix);
+            vnachalo();
         }
         else if (a == 4)
         {
@@ -48,10 +48,20 @@ int main()
         }
         else if (a == 5)
         {
-            int temp=0;
-            cout << "Введите номер записи, которую хотите увидеть: ";
-            cin >> temp;
+            int temp;
+            cout << "Введите номер записи, которую хотите увидеть: ";    
+            while (true)
+            {
+                cin >> temp;
+                if (temp < 0 || temp >2)
+                {
+                    cout << "\n\tВыбраной вами записи не существует, попробуйте еще раз\n";
+
+                }
+                else break;
+            }
             ponomery(temp);  
+
         }
         else if (a == 6)
         {
