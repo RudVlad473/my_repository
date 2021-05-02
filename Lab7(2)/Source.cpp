@@ -177,7 +177,8 @@ void randomly(OperSistem OS2, OperSistem WindowsNT, OperSistem SCOUnix)
 
     fopen_s(&f, "file.txt", "w");
 
-    if (f == NULL) {			//!f
+    if (f == NULL) 
+    {			//!f
         puts("Ошибка открытия файла.");
         exit(0);
     }
@@ -303,7 +304,7 @@ void vkonec(OperSistem OS2, OperSistem WindowsNT, OperSistem SCOUnix)
 
     OperSistem nazapis{};
 
-    cout << "Введите данные для структуры, которую хотите записать в начало файла:\n";
+    cout << "Введите данные для структуры, которую хотите записать в конец файла:\n";
 
     cout << "\tИмя ОС: ";
     cin >> nazapis.Name;
