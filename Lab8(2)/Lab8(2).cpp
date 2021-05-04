@@ -43,29 +43,37 @@ int main()
             cout << "\n\tВведите данные для добавления в список:\n";
 
             cout << "\nИмя: ";
-            char letter;
             for (int i = 0; i < strsize; i++)
             {
-                letter = getchar();
-                if ((letter == '\n') && (i != 0))
+                cin.get(temporary.Name[i]);
+                if ((temporary.Name[i] == '\n') && (i == 0))
+                {
+                    temporary.Name[i] = 0;
+                    i--;
+                    continue;
+                }
+                else if ((temporary.Name[i] == '\n') && (i != 0))
                 {
                     temporary.Name[i] = '\0';
                     break;
                 }
-                temporary.Name[i] = letter;
             }
 
             cout << "\nСУБД: ";
-            char letter1;
             for (int i = 0; i < strsize; i++)
             {
-                letter1 = getchar();
-                if ((letter1 == '\n') && (i != 0))
+                cin.get(temporary.SUBD[i]);
+                if ((temporary.SUBD[i] == '\n') && (i == 0))
+                {
+                    temporary.SUBD[i] = 0;
+                    i--;
+                    continue;
+                }
+                else if ((temporary.SUBD[i] == '\n') && (i != 0))
                 {
                     temporary.SUBD[i] = '\0';
                     break;
                 }
-                temporary.SUBD[i] = letter1;
             }
 
             cout << "\nОбъем внешней памяти: ";
@@ -113,29 +121,37 @@ int main()
             cout << "\n\tВведите данные для добавления в список:\n";
             /*Заполнение структуры*/
             cout << "\nИмя: ";
-            char letter2;
             for (int i = 0; i < strsize; i++)
             {
-                letter2 = getchar();
-                if ((letter2 == '\n') && (i != 0))
+                cin.get(temporary1.Name[i]);
+                if ((temporary1.Name[i] == '\n') && (i == 0))
+                {
+                    temporary1.Name[i] = 0;
+                    i--;
+                    continue;
+                }
+                else if ((temporary1.Name[i] == '\n') && (i != 0))
                 {
                     temporary1.Name[i] = '\0';
                     break;
                 }
-                temporary1.Name[i] = letter2;
             }
 
             cout << "\nСУБД: ";
-            char letter3;
             for (int i = 0; i < strsize; i++)
             {
-                letter3 = getchar();
-                if (letter3 == '\n' && (i != 0))
+                cin.get(temporary1.SUBD[i]);
+                if ((temporary1.SUBD[i] == '\n') && (i == 0))
+                {
+                    temporary1.SUBD[i] = 0;
+                    i--;
+                    continue;
+                }
+                else if ((temporary1.SUBD[i] == '\n') && (i != 0))
                 {
                     temporary1.SUBD[i] = '\0';
                     break;
                 }
-                temporary1.SUBD[i] = letter3;
             }
 
             cout << "\nОбъем внешней памяти: ";
@@ -168,18 +184,7 @@ int main()
             cout << "---> ";
             int choice3 = 0;
             cin >> choice3;
-            if (choice3 == 1)
-            {
-                Sorting(choice3);
-            }
-            else if (choice3 == 2)
-            {
-
-            }
-            else if (choice3 == 3)
-            {
-
-            }
+            Sorting(choice3);
 
         }
         else if (choice == 7)

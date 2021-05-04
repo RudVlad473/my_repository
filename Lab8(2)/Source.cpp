@@ -1,4 +1,6 @@
 #include "Header.h"
+using namespace std;
+
 Opers* head = NULL;
 
 Opers* tail = NULL;
@@ -180,126 +182,167 @@ void criteriy()
 
     if (choice == 1)
     {
+        Opers* temp1 = head;
 
-        int t = 0;
-        int k = 0;
+        int c;
 
         char tempcriteria[strsize]{};
 
-        cout << "\nВведите имя:";
+        cout << "\nВведите имя: ";
+
 
         for (int i = 0; i < strsize; i++)
         {
-            tempcriteria[i] = getchar();
-            t++;
 
-            if ((tempcriteria[i] == '\n') && (i != 0))
+            cin.get(tempcriteria[i]);
+            if ((tempcriteria[i] == '\n') && (i == 0))
+            {
+                tempcriteria[i] = 0;
+                i--;
+                continue;
+            }
+            else if ((tempcriteria[i] == '\n') && (i != 0))
             {
                 tempcriteria[i] = '\0';
-
                 break;
             }
 
         }
-
-        Opers* temp = head;
+           
         while (true)
         {
-            if (temp == NULL) break;
-            for (; k < strsize;)
+            
+
+
+            if (temp1 == NULL) break;
+            
+            c = 0;
+
+            for (int i = 0; i < strsize; i++)
             {
-                if (tempcriteria[k] == temp->Name[k]) k++;
-                else if (temp->Name[k] == '\0') break;
+                if (tempcriteria[i] == '\0')
+                {
+
+                    break;
+                }
+                else if (tempcriteria[i] == temp1->Name[i]) c++;
+                
                 else break;
             }
 
-            if ((t == k) && (t + k != 0))
+            if ((strlen(tempcriteria) == c))
             {
                 cout << "\nИскомые данные:\n";
 
                 for (int i = 0; i < strsize; i++)
                 {
-                    if (temp->Name[i] == '\0') break;
-                    cout << temp->Name[i];
+                    if (temp1->Name[i] == '\0') break;
+                    cout << temp1->Name[i];
                 }
                 cout << endl;
                 for (int i = 0; i < strsize; i++)
                 {
-                    if (temp->SUBD[i] == '\0') break;
-                    cout << temp->SUBD[i];
+                    if (temp1->SUBD[i] == '\0') break;
+                    cout << temp1->SUBD[i];
                 }
                 cout << endl;
-                cout << temp->outmem << endl;
-                cout << temp->minRam << endl;
-                cout << temp->cost << endl;
+                cout << temp1->outmem << endl;
+                cout << temp1->minRam << endl;
+                cout << temp1->cost << endl;
 
                 cout << endl << endl;
             }
 
-            temp = temp->next;
+            temp1 = temp1->next;
         }
 
+        
+        temp1 = nullptr;
     }
     else if (choice == 2)
     {
-        int t = 0;
-        int k = 0;
+        Opers* temp2 = head;
+
+        int c;
 
         char tempcriteria[strsize]{};
 
-        cout << "\nВведите СУБД:";
+        cout << "\nВведите СУБД: ";
+
 
         for (int i = 0; i < strsize; i++)
         {
-            tempcriteria[i] = getchar();
-            t++;
 
-            if ((tempcriteria[i] == '\n') && (i != 0))
+            cin.get(tempcriteria[i]);
+            if ((tempcriteria[i] == '\n') && (i == 0))
+            {
+                tempcriteria[i] = 0;
+                i--;
+                continue;
+            }
+            else if ((tempcriteria[i] == '\n') && (i != 0))
             {
                 tempcriteria[i] = '\0';
-
                 break;
             }
 
         }
 
-        Opers* temp = head;
+
+
+
+
+
+
+
         while (true)
         {
-            if (temp == NULL) break;
-            for (; k < strsize;)
+
+
+
+            if (temp2 == NULL) break;
+
+            c = 0;
+
+            for (int i = 0; i < strsize; i++)
             {
-                if (tempcriteria[k] == temp->SUBD[k]) k++;
-                else if (temp->SUBD[k] == '\0') break;
+                if (tempcriteria[i] == '\0')
+                {
+
+                    break;
+                }
+                else if (tempcriteria[i] == temp2->SUBD[i]) c++;
+
                 else break;
             }
 
-            if ((t == k) && (t + k != 0))
+            if ((strlen(tempcriteria) == c))
             {
                 cout << "\nИскомые данные:\n";
 
                 for (int i = 0; i < strsize; i++)
                 {
-                    if (temp->Name[i] == '\0') break;
-                    cout << temp->Name[i];
+                    if (temp2->Name[i] == '\0') break;
+                    cout << temp2->Name[i];
                 }
                 cout << endl;
                 for (int i = 0; i < strsize; i++)
                 {
-                    if (temp->SUBD[i] == '\0') break;
-                    cout << temp->SUBD[i];
+                    if (temp2->SUBD[i] == '\0') break;
+                    cout << temp2->SUBD[i];
                 }
                 cout << endl;
-                cout << temp->outmem << endl;
-                cout << temp->minRam << endl;
-                cout << temp->cost << endl;
+                cout << temp2->outmem << endl;
+                cout << temp2->minRam << endl;
+                cout << temp2->cost << endl;
 
                 cout << endl << endl;
             }
-            temp = temp->next;
+
+            temp2 = temp2->next;
         }
 
-
+        temp2 = nullptr;
     }
     else if (choice == 3)
     {
@@ -309,7 +352,7 @@ void criteriy()
         Opers* temps = head;
         while (true)
         {
-            if (temp == NULL) break;
+            if (temps == NULL) break;
             
             if (temp == temps->outmem)
             {
@@ -335,79 +378,82 @@ void criteriy()
             }
             temps = temps->next;
         }
-        
+        temps = nullptr;
     }
     else if (choice == 4)
     {
     int temp = 0;
     cout << "\nВведите объем оперативной памяти: ";
     cin >> temp;
-    Opers* temps = head;
+    Opers* temps2 = head;
     while (true)
     {
-        if (temp == NULL) break;
+        if (temps2 == NULL) break;
 
-        if (temp == temps->minRam)
+        if (temp == temps2->minRam)
         {
             cout << "\nИскомые данные:\n";
 
             for (int i = 0; i < strsize; i++)
             {
-                if (temps->Name[i] == '\0') break;
-                cout << temps->Name[i];
+                if (temps2->Name[i] == '\0') break;
+                cout << temps2->Name[i];
             }
             cout << endl;
             for (int i = 0; i < strsize; i++)
             {
-                if (temps->SUBD[i] == '\0') break;
-                cout << temps->SUBD[i];
+                if (temps2->SUBD[i] == '\0') break;
+                cout << temps2->SUBD[i];
             }
             cout << endl;
-            cout << temps->outmem << endl;
-            cout << temps->minRam << endl;
-            cout << temps->cost << endl;
+            cout << temps2->outmem << endl;
+            cout << temps2->minRam << endl;
+            cout << temps2->cost << endl;
 
             cout << endl << endl;
         }
-        temps = temps->next;
+        temps2 = temps2->next;
     }
+    temps2 = nullptr;
     }
     else if (choice == 5)
     {
     int temp = 0;
     cout << "\nВведите цену: ";
     cin >> temp;
-    Opers* temps = head;
+    Opers* temps3 = head;
     while (true)
     {
-        if (temp == NULL) break;
+        if (temps3 == NULL) break;
 
-        if (temp == temps->cost)
+        if (temp == temps3->cost)
         {
             cout << "\nИскомые данные:\n";
 
             for (int i = 0; i < strsize; i++)
             {
-                if (temps->Name[i] == '\0') break;
-                cout << temps->Name[i];
+                if (temps3->Name[i] == '\0') break;
+                cout << temps3->Name[i];
             }
             cout << endl;
             for (int i = 0; i < strsize; i++)
             {
-                if (temps->SUBD[i] == '\0') break;
-                cout << temps->SUBD[i];
+                if (temps3->SUBD[i] == '\0') break;
+                cout << temps3->SUBD[i];
             }
             cout << endl;
-            cout << temps->outmem << endl;
-            cout << temps->minRam << endl;
-            cout << temps->cost << endl;
+            cout << temps3->outmem << endl;
+            cout << temps3->minRam << endl;
+            cout << temps3->cost << endl;
 
             cout << endl << endl;
         }
-        temps = temps->next;
+        temps3 = temps3->next;
     }
+    temps3 = nullptr;
     }
 }
+
 int listsize()
 {
     Opers* temp = head;
