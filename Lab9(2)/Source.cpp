@@ -103,7 +103,7 @@ void printfromend()
         cout << temp->outmem << endl;
         cout << temp->minRam << endl;
         cout << temp->cost << endl;
-        temp = temp->next;
+        temp = temp->prev;
         cout << endl << endl;
     }
     
@@ -663,7 +663,7 @@ void Add(int pos, Opers newdata)
     }
     else {
         Opers* temp_pos = head;
-        for (int i = 0; i < pos - 1; i++)
+        for (int i = 1; i < (pos - 1); i++)
             temp_pos = temp_pos->next;
         if (temp_pos->next == NULL)
         {
@@ -710,7 +710,7 @@ void Delete(int pos)
     }
     else
     {
-        for (int i = 0; i < pos - 1; i++)
+        for (int i = 1; i < (pos - 1); i++)
         {
             temp_pos = temp_pos->next;
         }
@@ -1022,6 +1022,7 @@ void infile()
         fprintf(f, "%d", temp->minRam);
         fputc('\n', f);
         fprintf(f, "%d", temp->cost);
+        fputc('\n', f);
         fputc('\n', f);
         temp = temp->next;
     }

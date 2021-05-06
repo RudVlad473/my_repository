@@ -134,7 +134,7 @@ int main()
             {
                 cout << "---> ";
                 cin >> option;
-                if (option < 1 || option > 5)
+                if ((option < 1) || (option > 5))
                 {
                     cout << "\nНеверная опция, попробуйте еще раз\n";
                     continue;

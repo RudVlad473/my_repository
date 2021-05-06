@@ -104,7 +104,7 @@ void Add(int pos, Opers newdata)
     else
     {
         Opers* temp_pos = head;
-        for (int i = 0; i < pos - 2; i++)
+        for (int i = 1; i < (pos - 1); i++)
         {
             temp_pos = temp_pos->next;
 
@@ -141,17 +141,17 @@ void Delete(int pos)
     }
     else
     {			
-        for (int i = 0; i < pos - 1; i++)
+        for (int i = 1; i < (pos - 1); i++)
         {
             temp_pos = temp_pos->next;
         }
 
-        Opers* temp = temp_pos->next; //указатель на удаляемый элемент
+        Opers* temp = temp_pos->next; 
 
-        if (temp->next == NULL)     // ПОСЛЕДНИЙ
+        if (temp->next == NULL)     
         {
             temp_pos->next = NULL;
-        } //NULL  в предпоследний элемент
+        } 
         else
         {
             temp_pos->next = temp->next;
@@ -757,6 +757,7 @@ void infile()
         fprintf(f, "%d", temp->minRam);
         fputc('\n', f);
         fprintf(f, "%d", temp->cost);
+        fputc('\n', f);
         fputc('\n', f);
         temp = temp->next;
     }
