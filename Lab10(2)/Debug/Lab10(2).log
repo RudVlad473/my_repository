@@ -1,0 +1,15 @@
+﻿  Lab10(2).cpp
+  Source.cpp
+D:\local_repository\My_repository\Lab10(2)\Source.cpp(3,5): error C2062: тип "int" не требуется
+D:\local_repository\My_repository\Lab10(2)\Source.cpp(4,1): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+D:\local_repository\My_repository\Lab10(2)\Source.cpp(4,1): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+D:\local_repository\My_repository\Lab10(2)\Source.cpp(11,5): error C2065: x: необъявленный идентификатор
+D:\local_repository\My_repository\Lab10(2)\Source.cpp(16,5): error C2065: y: необъявленный идентификатор
+D:\local_repository\My_repository\Lab10(2)\Source.cpp(21,12): error C2065: s: необъявленный идентификатор
+D:\local_repository\My_repository\Lab10(2)\Source.cpp(26,25): error C2065: x: необъявленный идентификатор
+D:\local_repository\My_repository\Lab10(2)\Source.cpp(27,25): error C2065: y: необъявленный идентификатор
+D:\local_repository\My_repository\Lab10(2)\Source.cpp(32,5): error C2065: s: необъявленный идентификатор
+D:\local_repository\My_repository\Lab10(2)\Source.cpp(32,9): error C2065: x: необъявленный идентификатор
+D:\local_repository\My_repository\Lab10(2)\Source.cpp(32,13): error C2065: y: необъявленный идентификатор
+D:\local_repository\My_repository\Lab10(2)\Source.cpp(33,34): error C2065: s: необъявленный идентификатор
+  Создание кода...
