@@ -62,6 +62,14 @@ public:
     {
         cost = valuecost;
     }
+    void SetALL(string theName, string theSUBD, int theoutmem, int theminRam, int thecost)
+    {
+        Name = theName;
+        SUBD = theSUBD;
+        outmem = theoutmem;
+        minRam = theminRam;
+        cost = thecost;
+    }
 
     void ShowName()
     {

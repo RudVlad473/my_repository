@@ -13,7 +13,8 @@ int main()
     cout << "\nВведите значение y:";
     cin >> sum1.y;
     sum1.countS();
-    
+    cout << endl;
+    sum1.Print();
 
 
 #endif
@@ -27,7 +28,9 @@ int main()
     cout << endl;
     cout << "\nВведите значение y:";
     cin >> r->y;
-    sum1.countS();
+    r->countS();
+    cout << endl;
+    r->Print();
     
 #endif
      

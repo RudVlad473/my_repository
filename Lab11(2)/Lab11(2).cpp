@@ -34,5 +34,17 @@ int main()
     OS2.Setcost(333);
     OS2.ShowAll();
 
+    cout << endl << endl;
+    OS2.ShowName();
+    cout << endl;
+    OS2.ShowSUBD();
+    cout << endl;
+    OS2.Showoutmem();
+    cout << endl;
+    OS2.ShowminRam();
+    cout << endl;
+    OS2.Showcost();
+    cout << endl;
+
 }
 

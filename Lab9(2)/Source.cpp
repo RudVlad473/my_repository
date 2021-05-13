@@ -9,6 +9,7 @@ void Create(Opers newdata)
 {
     Opers* temp = new Opers;
 
+
     
 
     if (head == NULL)
@@ -50,29 +51,24 @@ void printfromstart()
         cout << "\nСписок пустой.\n";
         return;
     }
+    printf("-----------------------------------------------------------------------------------------------------------------------------------------\n");
+    printf("|                                          Конфигурация програмных средств информационных систем                                        |\n");
+    printf("-----------------------------------------------------------------------------------------------------------------------------------------\n");
+    printf("|   Операционная система  |    СУБД    |Мин.объем внешней памяти (MB)|  Мин.объем оперативной памяти (MB)  |   Приблизительная цена ($) |\n");
+    printf("-----------------------------------------------------------------------------------------------------------------------------------------\n");
     while (true)
     {
         if (temp == NULL) break;
-
-        for (int i = 0; i < strsize; i++)
-        {
-            if (temp->Name[i] == '\0') break;
-            cout << temp->Name[i];
-        }
-        cout << endl;
-        for (int i = 0; i < strsize; i++)
-        {
-            if (temp->SUBD[i] == '\0') break;
-            cout << temp->SUBD[i];
-        }
-        cout << endl;
-        cout << temp->outmem << endl;
-        cout << temp->minRam << endl;
-        cout << temp->cost << endl;
+        cout << "|" << setw(25) << temp->Name << "|" << setw(12) << temp->SUBD << "|" << setw(29) << temp->outmem << "|" << setw(37) << temp->minRam << "|" << setw(28) << temp->cost << "|" << endl;
+        printf("-----------------------------------------------------------------------------------------------------------------------------------------\n");
 
         temp = temp->next;
-        cout << endl << endl;
+        
+
     }
+    cout << endl << endl;
+        
+   
     
 
 }
@@ -85,28 +81,23 @@ void printfromend()
         cout << "\nСписок пустой.\n";
         return;
     }
+    printf("-----------------------------------------------------------------------------------------------------------------------------------------\n");
+    printf("|                                          Конфигурация програмных средств информационных систем                                        |\n");
+    printf("-----------------------------------------------------------------------------------------------------------------------------------------\n");
+    printf("|   Операционная система  |    СУБД    |Мин.объем внешней памяти (MB)|  Мин.объем оперативной памяти (MB)  |   Приблизительная цена ($) |\n");
+    printf("-----------------------------------------------------------------------------------------------------------------------------------------\n");
     while (true)
     {
         if (temp == NULL) break;
-        for (int i = 0; i < strsize; i++)
-        {
-            if (temp->Name[i] == '\0') break;
-            cout << temp->Name[i];
-        }
-        cout << endl;
-        for (int i = 0; i < strsize; i++)
-        {
-            if (temp->SUBD[i] == '\0') break;
-            cout << temp->SUBD[i];
-        }
-        cout << endl;
-        cout << temp->outmem << endl;
-        cout << temp->minRam << endl;
-        cout << temp->cost << endl;
+        
+        cout << "|" << setw(25) << temp->Name << "|" << setw(12) << temp->SUBD << "|" << setw(29) << temp->outmem << "|" << setw(37) << temp->minRam << "|" << setw(28) << temp->cost << "|" << endl;
+        printf("-----------------------------------------------------------------------------------------------------------------------------------------\n");
+       
         temp = temp->prev;
-        cout << endl << endl;
+        
+        
     }
-    
+    cout << endl << endl;
 }
 
 void criteriafromend(int choice)
@@ -996,34 +987,39 @@ void Sorting(int choice3)
 void infile()
 {
     FILE* f;
-    fopen_s(&f, "file.txt", "wt");
-    if (f == NULL)
-    {
-        return;
-    }
+    fopen_s(&f, "file.txt", "w");
+    if (f == NULL) return;
+    
     Opers* temp = head;
+
     while (temp != NULL)
     {
         for (int i = 0; i < strsize; i++)
         {
-            fwrite(&temp->Name[i], 1, 1, f);
+            fwrite(&temp->Name[i], sizeof(char), 1, f);
             if (temp->Name[i] == '\0') break;
 
         }
         fputc('\n', f);
+
         for (int i = 0; i < strsize; i++)
         {
-            fwrite(&temp->SUBD[i], 1, 1, f);
+            fwrite(&temp->SUBD[i], sizeof(char), 1, f);
             if (temp->SUBD[i] == '\0') break;
         }
         fputc('\n', f);
+
         fprintf(f, "%d", temp->outmem);
         fputc('\n', f);
+
         fprintf(f, "%d", temp->minRam);
         fputc('\n', f);
+
         fprintf(f, "%d", temp->cost);
         fputc('\n', f);
+
         fputc('\n', f);
+
         temp = temp->next;
     }
     fclose(f);
@@ -1033,27 +1029,49 @@ void Read()
 {
     FILE* f;
     fopen_s(&f, "file.txt", "r");
-    if (f == NULL)
-    {
-        return;
-    }
+    if (f == NULL) return;
+    Opers temp{};
 
     while (true)
     {
-        Opers temp{};
-
 
         for (int i = 0; i < strsize; i++)
         {
-            fread(&temp.Name[i], 1, 1, f);
-            if (temp.Name[i] == '\0') break;
+            
+            fread(&temp.Name[i], sizeof(char), 1, f);
+            if (temp.Name[i] == '\n' && i == 0)
+            {
+                temp.Name[i] = 0;
+                i--;
+                continue;
+            }
+            else if (temp.Name[i] == '\n' && i !=0)
+            {
+                temp.Name[i] = '\0';
+                break;
+            }
+            else if (temp.Name[i] == '\0') break;
 
         }
 
         for (int i = 0; i < strsize; i++)
         {
-            fread(&temp.SUBD[i], 1, 1, f);
-            if (temp.SUBD[i] == '\0') break;
+            
+            fread(&temp.SUBD[i], sizeof(char), 1, f);
+            if (temp.SUBD[i] == '\n' && i == 0)
+            {
+                temp.SUBD[i] = 0;
+                i--;
+                
+                continue;
+            }
+            else if (temp.SUBD[i] == '\n' && i != 0)
+            {
+                temp.SUBD[i] = '\0';
+                
+                break;
+            }
+            else if (temp.SUBD[i] == '\0') break;
         }
 
 
@@ -1063,6 +1081,8 @@ void Read()
         fscanf_s(f, "%d", &temp.minRam);
 
         fscanf_s(f, "%d", &temp.cost);
+
+
         if (feof(f)) break;
         Create(temp);
 
