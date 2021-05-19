@@ -218,10 +218,12 @@ int main()
         {
             cout << "\nВведите номер элемента, который следует удалить: ";
             int pos1;
-            cin >> pos1;
+            
             while (true)
             {
-                if (pos1 > listsize())
+                cout << "\n--->";
+                cin >> pos1;
+                if (pos1 > listsize() || pos1 <= 0 )
                 {
                     cout << "\nВ списке нет такой позиции, попробуйте еще раз\n";
                     continue;

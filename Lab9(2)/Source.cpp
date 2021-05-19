@@ -692,16 +692,16 @@ void Add(int pos, Opers newdata)
 void Delete(int pos)
 {
     Opers* temp_pos = head;
-    if (pos == 0)
+
+    if (pos == 1)
     {
         head = head->next;
 
-        head->prev = NULL;
         delete temp_pos;
     }
     else
     {
-        for (int i = 1; i < (pos - 1); i++)
+        for (int i = 1; i < (pos-1 ); i++)
         {
             temp_pos = temp_pos->next;
         }
@@ -711,13 +711,12 @@ void Delete(int pos)
         if (temp->next == NULL)
         {
             temp_pos->next = NULL;
-            tail = temp_pos;
         }
         else
         {
             temp_pos->next = temp->next;
-            temp->next->prev = temp_pos;
         }
+
         delete temp;
     }
 

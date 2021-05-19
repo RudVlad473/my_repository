@@ -1,0 +1,3 @@
+D:\Matrixapp\matrixappwindow\matrixappwindow\Debug\matrixappwindow.vcxprojAssemblyReference.cache
+D:\Matrixapp\matrixappwindow\matrixappwindow\Debug\matrixappwindow.MyForm.resources
+D:\Matrixapp\matrixappwindow\matrixappwindow\Debug\matrixappwindow.vcxproj.GenerateResource.cache

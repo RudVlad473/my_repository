@@ -1,0 +1,6 @@
+﻿  matrixapp.cpp
+D:\Matrixapp\matrixapp\matrixapp\matrixapp.cpp(76,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\Matrixapp\matrixapp\matrixapp\matrixapp.cpp(132,38): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+D:\Matrixapp\matrixapp\matrixapp\matrixapp.cpp(133,38): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+D:\Matrixapp\matrixapp\matrixapp\matrixapp.cpp(206,35): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+  matrixapp.vcxproj -> D:\Matrixapp\matrixapp\Debug\matrixapp.exe
